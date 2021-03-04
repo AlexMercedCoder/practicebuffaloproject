@@ -1,19 +1,18 @@
 package actions
 
 import (
+	"project1/models"
 	"github.com/gobuffalo/buffalo"
 	"github.com/gobuffalo/envy"
 	forcessl "github.com/gobuffalo/mw-forcessl"
 	i18n "github.com/gobuffalo/mw-i18n"
 	paramlogger "github.com/gobuffalo/mw-paramlogger"
 	"github.com/unrolled/secure"
-
-	"project1/models"
-
 	"github.com/gobuffalo/buffalo-pop/v2/pop/popmw"
 	contenttype "github.com/gobuffalo/mw-contenttype"
 	"github.com/gobuffalo/x/sessions"
 	"github.com/rs/cors"
+	"github.com/gobuffalo/packr/v2"
 )
 
 // ENV is used to help switch settings based on where the
@@ -61,6 +60,9 @@ func App() *buffalo.App {
 		app.Use(popmw.Transaction(models.DB))
 
 		app.GET("/", HomeHandler)
+		app.GET("/todo/", TodoIndex)
+		app.GET("/todo/add", TodoAdd)
+		app.GET("/todo/{id}", TodoShow)
 	}
 
 	return app

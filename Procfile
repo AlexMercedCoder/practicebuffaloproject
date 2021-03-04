@@ -1,0 +1,1 @@
+web: buffalo build && ./project1
