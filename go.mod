@@ -2,6 +2,8 @@ module project1
 
 go 1.16
 
+// +heroku goVersion 1.16
+
 require (
 	github.com/gobuffalo/buffalo v0.15.5
 	github.com/gobuffalo/buffalo-pop/v2 v2.3.0
