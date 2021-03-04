@@ -1,1 +1,1 @@
-web: buffalo build && ./bin/project1
+web: ./bin/project1
